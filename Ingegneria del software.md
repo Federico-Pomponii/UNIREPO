@@ -1,6 +1,6 @@
 # Riassunto Ingegneria Del Software - Federico Pomponii
 
-# Modello
+# Modello - MOD.2
 Per modello si
  intende una rappresentazione di un oggetto o di un fenomeno reale che riproduce caratteristiche o comportamentei ritenuto fondamentali per il tipo di ricerca che si sta svolgendo.
 Per l'Ingegneria del software un modello costituisce una visione semplificata di un sistema che rende il sistema stesso
@@ -149,3 +149,79 @@ Le pratiche fondamentale sono sei:
 -   ***Creare modelli visivi del software***: usare modelli grafici UML
 -   ***Verificare la qualità del software***: assicurarsi che il software raggiunga gli standard qualitativi
 -   ***Controllare le modifiche del software***: gestire i cambiamenti del software usando un sistema per la gestione delle modifiche.
+
+# ADT - MOD.1-3
+Concetti base di classi astratte e programmazione OO
+
+# Analisi dei requisiti MOD.2-3
+I requisiti di un sistema rappresentano la descrizione
+-   Dei servizi forniti
+-   Dei vincoli operativi
+
+-   **Requisiti utente**: dichiarano quali servizi il sistema dovrebbe fornire e i vincoli sotto cui deve operare.
+    -   Sono requisiti molto astratti e di alto livello
+    -   Tipicamente sono espressi in linguaggio naturale e corredati da qualche diagramma.
+
+-   **Requisiti di sistema**: definiscono le funzioni, i servizi e i vincoli del sistema in modo dettagliato
+    -   il ***Documento dei Requisiti del sistema*** deve essere preciso e definire esattamente cosa deve essere sviluppato.
+
+## Requisiti di sistema
+I requisiti di sistema, solitamente, sono divisi in:
+    -   Requisiti funzionali
+    -   Requisiti non funzionali
+    -   Requisiti di dominio
+
+### Requisiti funzionali
+Descrivono quello che il sistema "dovrebbe fare".
+Sono elenchi di servizi che il sistema dovrebbe fornire e per ogni servizio dovrebbe essere indicato:
+-   Come reagire a particolari input
+-   Come comportarsi in particolari situazioni
+-   In alcuni casi specificare cosa il sistema non dovrebbe fare
+
+Le specifiche dei requisiti funzionali dovrebbero essere:
+    - **Complete**
+    - **Coerenti**
+
+### Requisiti non funzionali
+I principali tipi di requisiti non funzionali sono:
+- **Requisiti del prodotto**: specificano o limitano le proprietà complessive del sistema.
+  -   *affidabilità, prestazioni, protezione dei dati, disponibilità dei servizi,tempi di risposta, occupazione di spazio, capacità dei dispositivi di I/O, rappresentazione dei dati nelle interfacce, etc.* 
+
+- **Requisiti organizzativi**: possono violare anche il processo di sviluppo adottato.
+  - *politiche e procedure dell’organizzazione cliente e sviluppatrice,
+specifiche degli standard di qualità da adottare, uso di un particolare
+CASE tool e linguaggi di implementazione, limiti di budget, requisiti
+di consegna e milestones..*
+
+- **Requisiti esterni**: si identificano tutti i requisiti che derivano da fattori non provenienti dal sistema e dal suo processo di sviluppo.
+
+### Requisiti di dominio
+Derivano dal dominio di applicazione del sistema e solitamente si riferiscono ai suoi concetti.
+L'analisi deve coinvolgere gli esperti del dominio per chiarire ogni dubbio sulla terminologia.
+
+## Raccolta dei requisiti
+-   L'obiettivo è raccogliere tutte le informazioni su cosa il sistema deve fare secondo le intenzioni del cliente. Non prevede passi formali in quano dipende dal particolare tipo di problema
+-   **Risultato**
+    -   Un documento scritto dall'analista, discusso e approvato dal cliente.
+    -   Una versiona iniziale del glossario contente la descrizione *precisa e non ambigua* di tutti i termini e i concetti utilizzati
+-   **Tipologia di persone coinvolte**
+    -   Analista
+    -   Utente
+    -   Esperto del dominio (non indispensabile)
+-   **Metodi utilizzati**
+    -   Interviste, questionari
+    -   Studio di doumenti che esprimono i requisiti in forma testuale
+    -   Osservazione passiva o attiva del processo da modellare
+    -   Studio di sistemi software esistenti
+    -   Prototipi
+
+## Analisi dei requisiti
+
+### Validazione dei requisiti
+Ogni requisito deve essere validato con i clienti prima di essere inserito nel documento dei requisiti.
+
+### Cambiamento dei requisiti
+-   Requisiti esistenti possono essere modificati o rimossi
+-   Nuovi requisiti possono essere aggiunti in una qualunque fase del ciclo di sviluppo
+-   Il costo del cambiamento è proporzionato all'avanzamento dello sviluppo
+-   Ogni cambiamento deve essera accuratamente analizzato
