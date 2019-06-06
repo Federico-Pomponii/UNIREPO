@@ -97,3 +97,17 @@ framework adattabile che può dar luogo a diversi processi
 in diversi contesti (per esempio in diverse organizzazioni o
 nel contesto di progetti con diverse caratteristiche).
 E' pensato per progetti di grandi dimensioni.
+
+RUP individua tre diverse versioni del processo di sviluppo:
+-   Una prospettiva dinamica che mostra le fasi del modello nel tempo
+-   Una prospettiva statica che mostra le attività del processo coinvolte
+-   Una prospettiva pratica che suggerisce le buone prassi da seguire durante il processo
+
+#### PROSPETTIVA DINAMICA
+***Inception(Avvio)*** - Generalizzazione dell'analisi di fattibili. Lo scopo principale è quello di delinare nel modo più accurato il business case ovvero:
+-   Comprendere il *tipo di mercato* al quale il progetto afferisce e identificare gli elementi importanti affinché esso conduca a un successo commerciale.
+-   Identificare tutte le *entità esterne* che interagiranno con il sistema e definire tali interazioni.
+
+***Elaboration(Elaborazione)*** - definisce la struttura complessiva del sistema. Comprende l'analisi di dominio e una prima fase di progettazione dell'architettura.
+
+CONTINUA A SLIDE 56 -> https://iol.unibo.it/pluginfile.php/322623/mod_resource/content/0/Mod2-2.ModellieProcessi.pdf
