@@ -225,3 +225,70 @@ Ogni requisito deve essere validato con i clienti prima di essere inserito nel d
 -   Nuovi requisiti possono essere aggiunti in una qualunque fase del ciclo di sviluppo
 -   Il costo del cambiamento è proporzionato all'avanzamento dello sviluppo
 -   Ogni cambiamento deve essera accuratamente analizzato
+
+## Analisi del dominio
+-   **Obiettivo** definire la porzione del mondo reale, rilevante per il sistema.
+-   *Principio Fondamentale* : **Astrazione**
+-   **Risultato**: prima versione del *vocabolario* partendo dai sostantivi che si trovano nei requisiti
+
+## Analisi e gestione dei rischi
+-   Analisi completa di tutti i possibili rischi che posso fare fallori o intralciare la realizzazione del sistema
+-   Ogni rischio presenta due carratteristiche:
+    -   Probabilità che avvenga
+    -   Costo
+
+Le tipologie di rischi sono:
+-   **Rischi relativi ai requisiti**
+-   **Rischi relativi alle risorse umane**
+-   **Rischi relativi alla protezione e privacy dei dati**
+-   **Rischi tecnologici**
+-   **Rischi politici**
+
+Strategie risolutive:
+-   **Strategia reattiva**
+-   **Strategia preventiva**
+    -   Si mette in moto prima che inizi il lavoro tecnico
+    -   Si individuano rischi potenziali, se ne valutano le probabilità e si stabilisce un ordine di importanza
+    -   Si predispone un piano che permetta di reagire in modo controllato ed efficace.
+
+## Casi d'uso e scenari
+I casi d'uso e i relativi scenari permettono di:
+-   formalizzare i requisiti funzionali
+-   di comprendere meglio il funzionamento del sistema
+-   di comunicare meglio con il cliente
+
+L'insieme di casi d'uso costituisce l'immagine del sistema con l'esterno.
+
+1. Individuare il confine del sistema
+2. Individuare gli attori 
+   - Ogni attore modella il ruole interpretato da un utente(*persona o sistema esterno*)
+3. Individuare i casi d'uso
+4. Disegnare i diagrammi dei casi d'uso
+5. Descrivere i dettagli di ogni singolo caso d'uso mediante scenari
+6. Ricontrollare e validare i casi d'uso insieme al cliente
+
+Un caso d'uso
+- viene sempre avviato, direttamente o indirettamente, dall'intervento di un attore che si pone un obiettivo.
+- Si conclude con successo quando l'obiettivo viene raggiunto
+- Si conclude con fallimento quando l'obiettivo non viene raggiunto
+
+Un caso d'uso viene sempre descritto dal punto di vista di un attore e comprende
+-   **0+ Precondizioni** - Condizioni che devono essere tutte verificate prima che il caso d'uso possa essere eseguito
+-   **1+ Scentari - sequenze di passi** - descrivono le interazioni tra l'attore e il sistema
+-   **0+ Postcondizioni** - Condizioni che devono essere tutte vere quando il caso d'uso termina l'esecuzione con successo.
+
+Ogni sequenza di passi deve essere scritto in una forma narrativa strutturata e utilizzare il vocabolario di dominio.
+
+Un caso d'uso comprende
+-   **1 SCENARIO PRINCIPALE**
+-   **0+ SCENARI ALTERNATIVI**
+
+### Generalizzazione
+Si utilizza quando un caso d'uso è simile ad un altro, ma fa qualcosa in più
+
+### Inclusione <<include>>
+Si utilizza quando un caso d'uso utilizza almeno una volta un altro caso d'uso
+
+### Estensione <<extend>>
+Si utilizza quando è necessario aggiungere un comportamento opzionale a un caso d'uso esistente
+
