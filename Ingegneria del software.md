@@ -1,7 +1,8 @@
 # Riassunto Ingegneria Del Software - Federico Pomponii
 
 # Modello
-Per modello si intende una rappresentazione di un oggetto o di un fenomeno reale che riproduce caratteristiche o comportamentei ritenuto fondamentali per il tipo di ricerca che si sta svolgendo.
+Per modello si
+ intende una rappresentazione di un oggetto o di un fenomeno reale che riproduce caratteristiche o comportamentei ritenuto fondamentali per il tipo di ricerca che si sta svolgendo.
 Per l'Ingegneria del software un modello costituisce una visione semplificata di un sistema che rende il sistema stesso
 - Più acessibile alla comprensione e alla valutazione
 - Facilità il trasferimento di informazione e collaborazione tra persone
@@ -78,3 +79,35 @@ Il vantaggio è che ad ogni iterazione è possibile :
 Si tratta di sistemi composti da sotto-sistemi. Per ogni sotto-sistema è possibile adottare un diverso modello di sviluppo.
 
 ### Sviluppo incrementale
+-   Si costruisce un sistema sviluppandone sistematicamente e in sequenza parti ben definite.
+-   **Una volta costruita una parte essa non viene più modificata**
+
+### Sviluppo iterativo
+Si effettuano molti passi dell'intero cicli di sviluppo del software, per costruire, iterativamente tutto il sistema.
+
+### Sviluppo incrementale - iterativo
+- Si individuano sottoparti relativamente autonome
+- Si realizza il prototipo di una di esse
+- Si continua con altre parti
+- Si aumenta, progressivamente, l'estensione e il dettaglio dei protitipi.
+  
+### RUP - Rational Unified Process
+Non definisce un singolo, specifico processo, bensì un
+framework adattabile che può dar luogo a diversi processi
+in diversi contesti (per esempio in diverse organizzazioni o
+nel contesto di progetti con diverse caratteristiche).
+E' pensato per progetti di grandi dimensioni.
+
+RUP individua tre diverse versioni del processo di sviluppo:
+-   Una prospettiva dinamica che mostra le fasi del modello nel tempo
+-   Una prospettiva statica che mostra le attività del processo coinvolte
+-   Una prospettiva pratica che suggerisce le buone prassi da seguire durante il processo
+
+#### PROSPETTIVA DINAMICA
+***Inception(Avvio)*** - Generalizzazione dell'analisi di fattibili. Lo scopo principale è quello di delinare nel modo più accurato il business case ovvero:
+-   Comprendere il *tipo di mercato* al quale il progetto afferisce e identificare gli elementi importanti affinché esso conduca a un successo commerciale.
+-   Identificare tutte le *entità esterne* che interagiranno con il sistema e definire tali interazioni.
+
+***Elaboration(Elaborazione)*** - definisce la struttura complessiva del sistema. Comprende l'analisi di dominio e una prima fase di progettazione dell'architettura.
+
+CONTINUA A SLIDE 56 -> https://iol.unibo.it/pluginfile.php/322623/mod_resource/content/0/Mod2-2.ModellieProcessi.pdf
