@@ -108,6 +108,44 @@ RUP individua tre diverse versioni del processo di sviluppo:
 -   Comprendere il *tipo di mercato* al quale il progetto afferisce e identificare gli elementi importanti affinché esso conduca a un successo commerciale.
 -   Identificare tutte le *entità esterne* che interagiranno con il sistema e definire tali interazioni.
 
-***Elaboration(Elaborazione)*** - definisce la struttura complessiva del sistema. Comprende l'analisi di dominio e una prima fase di progettazione dell'architettura.
+***Elaboration(Elaborazione)*** - definisce la struttura complessiva del sistema. Comprende l'analisi di dominio e una prima fase di progettazione dell'architettura. L'elaborazione deve soddisfare i seguenti criteri : 
+-   Modello dei casi d'uso completo all'80%
+-   Descrizione dell'architettura del sistema
+-   Sviluppo di un'architettura esegubile che dimostri il completamento degli use case significativi
+-   Revisione del business case e dei rischi
+-   Pianificazione del progetto complessivo
+  
+***Construction(Costruzione)*** - Progettare, programmare e testare il sistema:
+-   Le diverse parti del sistema vengono sviluppate parallelamente e poi integrate
+-   Al termine della fase si dovrebbe avere un sistema software funzionane e la relativa documentazione pronta
 
-CONTINUA A SLIDE 56 -> https://iol.unibo.it/pluginfile.php/322623/mod_resource/content/0/Mod2-2.ModellieProcessi.pdf
+***Transition(Transizione)*** - Il sistema passa dall'ambiente di sviluppo a quello del cliente finale:
+-   Vengono condotte attivitù di training degli utenti e beta testing.
+-   Si deve in particolare verificare che il prodotto sia conforme alle aspettative descritte nella fase di inception.
+
+#### PROSPETTIVA STATICA
+La prospettiva statica di RUP si concentra sulle attività di produzione del software (*** workflow ***).
+RUP è stato progettato insieme ad UML quindi, la descrizione dei workflow, è orientata ai modelli UML.
+-   **WORKFLOW PRINCIPALI**
+    -   ***Modellazione delle attività principali***: i processi aziendali sono modellati utilizzando il business case.
+    -   ***Requisiti***: vengono identificati gli attori che interagiscono con il sistema e sviluppati i casi d'uso per modellare i requisiti.
+    -   ***Analisi e progetto***: viene creato e documentato un modello di progetto.
+    -   ***Implementazione***: i componenti del sistema sono implementati e strutturati.
+    -   ***Test***
+    -   ***Rilascio***: viene creata una release del prodotto.
+
+-   **WORKFLOW DI SUPPORTO**
+    -   ***Gestione della configurazione e delle modifiche***: workflow di supporto che gestisce i cambiamenti del sistema.
+    -   ***Gestione del progetto***: gestisce lo sviluppo del sistema.
+    -   ***Ambiente***: rende disponibili al team di sviluppatori gli strumenti adeguati
+
+
+#### PROSPETTIVA PRATICA
+La prospettiva pratica di RUP descrive la buona prassi che si consiglia di utilizzare nello sviluppo dei sistemi.
+Le pratiche fondamentale sono sei:
+-   ***Sviluppare il software ciclicamente***: Sviluppare e consegnare le funzioni con la priorità più alta all'inizio del processo di sviluppo.
+-   ***Gestire i requisiti***: documentare esplicitamente i requisiti del cliente e i cambiamenti effettuati
+-   ***Usare architetture basate sui componenti***: strutturare l'architettura del sistema con approccio a componenti.
+-   ***Creare modelli visivi del software***: usare modelli grafici UML
+-   ***Verificare la qualità del software***: assicurarsi che il software raggiunga gli standard qualitativi
+-   ***Controllare le modifiche del software***: gestire i cambiamenti del software usando un sistema per la gestione delle modifiche.
