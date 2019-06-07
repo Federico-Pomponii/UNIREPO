@@ -1,5 +1,44 @@
 # Riassunto Ingegneria Del Software - Federico Pomponii
 
+- [Riassunto Ingegneria Del Software - Federico Pomponii](#riassunto-ingegneria-del-software---federico-pomponii)
+- [Modello - MOD.2](#modello---mod2)
+  - [Modelli del sistema](#modelli-del-sistema)
+    - [Tracciabilità](#tracciabilit%C3%A0)
+  - [Linguaggi di modellazione](#linguaggi-di-modellazione)
+    - [Modelli e codice](#modelli-e-codice)
+  - [Modelli di processo](#modelli-di-processo)
+  - [Modelli di processo di sviluppo](#modelli-di-processo-di-sviluppo)
+    - [Modello a cascata](#modello-a-cascata)
+      - [Prototipo](#prototipo)
+      - [throw-away prorotyping](#throw-away-prorotyping)
+    - [Modelli evolutivi](#modelli-evolutivi)
+      - [Programmazione esplorativa](#programmazione-esplorativa)
+      - [Problemi dei modelli evolutivi](#problemi-dei-modelli-evolutivi)
+    - [Modelli ibridi](#modelli-ibridi)
+    - [Sviluppo incrementale](#sviluppo-incrementale)
+    - [Sviluppo iterativo](#sviluppo-iterativo)
+    - [Sviluppo incrementale - iterativo](#sviluppo-incrementale---iterativo)
+    - [RUP - Rational Unified Process](#rup---rational-unified-process)
+      - [PROSPETTIVA DINAMICA](#prospettiva-dinamica)
+      - [PROSPETTIVA STATICA](#prospettiva-statica)
+      - [PROSPETTIVA PRATICA](#prospettiva-pratica)
+- [ADT - MOD.1-3](#adt---mod1-3)
+- [Analisi dei requisiti MOD.2-3](#analisi-dei-requisiti-mod2-3)
+  - [Requisiti di sistema](#requisiti-di-sistema)
+    - [Requisiti funzionali](#requisiti-funzionali)
+    - [Requisiti non funzionali](#requisiti-non-funzionali)
+    - [Requisiti di dominio](#requisiti-di-dominio)
+  - [Raccolta dei requisiti](#raccolta-dei-requisiti)
+  - [Analisi dei requisiti](#analisi-dei-requisiti)
+    - [Validazione dei requisiti](#validazione-dei-requisiti)
+    - [Cambiamento dei requisiti](#cambiamento-dei-requisiti)
+  - [Analisi del dominio](#analisi-del-dominio)
+  - [Analisi e gestione dei rischi](#analisi-e-gestione-dei-rischi)
+  - [Casi d'uso e scenari](#casi-duso-e-scenari)
+    - [Generalizzazione](#generalizzazione)
+    - [Inclusione <<include>>](#inclusione-include)
+    - [Estensione <<extend>>](#estensione-extend)
+- [Diagrammi UML - MOD 2.5](#diagrammi-uml---mod-25)
 # Modello - MOD.2
 Per modello si
  intende una rappresentazione di un oggetto o di un fenomeno reale che riproduce caratteristiche o comportamentei ritenuto fondamentali per il tipo di ricerca che si sta svolgendo.
@@ -292,3 +331,5 @@ Si utilizza quando un caso d'uso utilizza almeno una volta un altro caso d'uso
 ### Estensione <<extend>>
 Si utilizza quando è necessario aggiungere un comportamento opzionale a un caso d'uso esistente
 
+# Diagrammi UML - MOD 2.5
+E' un *linguaggio* che serve per visualizzare, specificare, costruire e documentare un sistema e gli elaborati prodotti durante il suo sviluppo.
