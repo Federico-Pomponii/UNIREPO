@@ -37,7 +37,6 @@ public class UserManager {
 				return u.isFinalized();
 
 		return false;
-
 	}
 
 	public void finalizeUser(long idUser) {
@@ -62,11 +61,12 @@ public class UserManager {
 
 	public synchronized boolean checkFinalizedGroup(long idGroup) {
 		for (HttpServletRequest req : sessions.get(idGroup))
-			if(null != req.getSession(false))
-				if(!checkUserFinalized(((User) req.getAttribute("user")).getUserId()))
-						return false;
-				
-			return true;
+			if (null != req.getSession(false))
+				if (!checkUserFinalized(((User) req.getAttribute("user")).getUserId()))
+					return false;
+
+		sessions.get(idGroup).clear();
+		return true;
 	}
 
 }
