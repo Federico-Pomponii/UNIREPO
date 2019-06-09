@@ -39,6 +39,8 @@
     - [Inclusione <<include>>](#inclusione-include)
     - [Estensione <<extend>>](#estensione-extend)
 - [Diagrammi UML - MOD 2.5](#diagrammi-uml---mod-25)
+
+
 # Modello - MOD.2
 Per modello si
  intende una rappresentazione di un oggetto o di un fenomeno reale che riproduce caratteristiche o comportamentei ritenuto fondamentali per il tipo di ricerca che si sta svolgendo.
