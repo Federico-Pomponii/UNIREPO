@@ -28,6 +28,10 @@
 - [Cosa si intende per fragilità del codice](#cosa-si-intende-per-fragilit%C3%A0-del-codice)
 - [Pre e post condizioni nel subclassing](#pre-e-post-condizioni-nel-subclassing)
 - [Rigidità del software](#rigidit%C3%A0-del-software)
+- [Protected e Internal](#protected-e-internal)
+  - [Protected](#protected)
+  - [Internal](#internal)
+  - [Protected Internal (OR)](#protected-internal-or)
 
 
 # Domanda tecnica su chi implementa cosa in un pattern visitors
@@ -278,5 +282,14 @@ Questo porta ad un problema in quanto ogni possibile fix del software genera err
 E' la difficoltà di applicare cambiamenti al software
 Ogni cambiamebto porta ad una serie di cambiamenti *in cascata* a moduli dipendenti.
 Questo porta alla paura di applicare fix a problemi non critici
+
+# Protected e Internal
+## Protected
+The type or member can be accessed only by code in the same class or struct, or in a class that is derived from that class.
+
+## Internal
+The type or member can be accessed by any code in the same assembly, but not from another assembly.
+## Protected Internal (OR)
+The type or member can be accessed by any code in the assembly in which it is declared, OR from within a derived class in another assembly. Access from another assembly must take place within a class declaration that derives from the class in which the protected internal element is declared, and it must take place through an instance of the derived class type.
 
 RIPARTIRE DA DOMANDA N.23
