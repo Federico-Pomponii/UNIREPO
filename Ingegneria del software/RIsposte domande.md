@@ -63,3 +63,188 @@ In sintesi il pattern VISITOR:
 ![](resources/assembly_2.png)
 
 # Domanda su cls di .net
+Il **Common Language Specification**
+-   Definisce le regole di compatibilità tra linguaggi
+    -   Regole per gli identificatori
+        -   Unicode, case-sensitivity
+        -   Keyword
+    - Regole per denominazione proprietà ed eventi
+    - Regole per costruttori degli oggetti
+    - Regole di overload più restrittive
+    - Ammesse interfacce multiple con metodi con lo stesso nome
+    - Non ammessi puntatori unmanaged
+
+![](resources/cls_1.png)
+
+-   Regole
+    - Information hiding a livello di assembly
+    - Information hiding a livello di classe
+    - Information hiding a livello di field
+-   Costanti: il nome dovrebbe iniziare con una lettera maiuscola e solitamente deve essere pubblica
+-   Field: il nome deve iniziare con ‘_’ seguito da lettera minuscola e deve essere privato
+-   Field read-only: une delle due convenzioni precedenti
+
+# Dire di che tipo deve essere il type di un event
+
+# Pattern FLyWeight
+Il FlyWeight è un pattern **Strutturale**.
+-   Descrive come condividere oggetti *leggeri* in modo tale che il loro uso non sia troppo costoso
+-   E' un oggetto condiviso utilizzabile simultaneamente da più clienti.
+-   E' svincolato dal contesto in cui opera
+-   E' ottenibile soltanto mediante una **FlyweightFactory**
+
+**Stato intrinseco**
+-   Non dipende dal contesto di utilizzo e quindi può essere condiviso da tutti i clienti
+-   E' memorizzato nel Flyweight
+
+**Stato estrinseco**
+-   Dipende dal contesto di utilizzo e quindi non può essere condiviso dai clienti
+-   Calcolato dal cliente
+-   Viene passato al Flyweight quando viene invocat una sua operazione
+
+![](resources/flyweight_1.png)
+
+# Pattern che usano la delega
+-   **Boss-worker** offre una soluzione ***delegate-based*** *callback_relationship*
+-   L' ***AlignerBase*** del pattern **Strategy** delega alle sue sottoclassi l'allineamendot delle singole linee
+-   Nel pattern **Decorator** quando un oggetto cambia stato, cambia anche comportamento utilizzando un pattern **State** che utilizza un meccanismo di delega, grazie al quale l'oggetto è in grado di comportarsi come se avesse cambiato classe.
+
+# Quale pattern NON usa la composizione e delega
+I pattern che utilizzano Adapter e che non utilizzano Composite e Decorator
+-   Pattern **Observer** (?)
+
+# Domanda sui rischi tecnologici
+## Analisi e gestione dei rischi
+-   Analisi completa di tutti i possibili rischi che posso fare fallori o intralciare la realizzazione del sistema
+-   Ogni rischio presenta due carratteristiche:
+    -   Probabilità che avvenga
+    -   Costo
+
+Le tipologie di rischi sono:
+-   **Rischi relativi ai requisiti**
+-   **Rischi relativi alle risorse umane**
+-   **Rischi relativi alla protezione e privacy dei dati**
+-   **Rischi tecnologici** :
+    -   
+-   **Rischi politici**
+
+Strategie risolutive:
+-   **Strategia reattiva**
+-   **Strategia preventiva**
+    -   Si mette in moto prima che inizi il lavoro tecnico
+    -   Si individuano rischi potenziali, se ne valutano le probabilità e si stabilisce un ordine di importanza
+    -   Si predispone un piano che permetta di reagire in modo controllato ed efficace.
+
+# Definizione di design pattern
+*"Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use the olution a million times over, without ever doing it the same way twice"*
+1977 - Christoper Alexander
+**Obiettivi**
+-   Risolvere problemi progettuali specifici
+-   Rendere i progetti OO più flessibili e riutilizzabili
+
+Ogni design pattern ha quattro elementi essenziali
+-   **Nome** - Identifica il pattern
+-   **Problema** - Descrive quando applicare il pattern
+-   **Soluzinoe** - Descrive il pattern, cioè gli elementi che lo compongono e le loro relazioni, responsabilità e collaborazioni.
+-   **Conseguenze** - Descrivono svantaggi e vantaggi dell'applicazione del pattern.
+
+Sono classificati in
+-   **Pattern di creazione** - Risolvono problemi inerenti il processo di creazione degli oggetti
+-   **Pattern strutturali** - Risolvono problemi inerenti la composizione di classi o di oggetti.
+-   **Pattern comportamentali** - Risolvono problemi inerenti le modalità di interazione e di distribuzione delle responsabilità tra classi o tra oggetti.
+
+![](resources/pattern_1.png)
+
+# Scopo del modello evolutivo
+## Modelli evolutivi
+
+### Programmazione esplorativa
+Il prototipo, progressivamente, fluisce nel prodotto finale.
+Questo presuppone un lavoro a stretto contatto con il cliente.
+
+Esistono diversi tipo di modelli evolutivi, ma tutti in sostanza propongono un ciclo di sviluppo in cui un prototipo iniziale evolve, gradualmente, verso il prodotto finito.
+Il vantaggio è che ad ogni iterazione è possibile :
+- ***Raffinamento dell'analisi*** : rivedere specifiche e funzionalità.
+- ***Raffinamento del design*** : rivedere le scelte di progettazione.
+- I modelli evolutivi si sono orientati verso cicli sempre più
+brevi e iterazioni sempre più veloci, fino ad arrivare al
+modello più “radicale” che prende il nome di Extreme
+Programming (XP)
+
+### Applicabilità
+-   Sitstemi di piccoli dimensioni
+-   Sistemi che avranno breve durata
+-   Parti di sistemi più grandi
+
+### Problemi dei modelli evolutivi
+-   Il processo di sviluppo non è visibile.
+-   Il sistema è poco strutturato.
+-   E' richiesta una particolare abilità nella programmazione.
+
+# Domanda su tipi valore e tipi riferimento
+## CTS - Common Type System
+![](resources/type_1.png)
+
+La classe radice è **System.Object**
+Esistono due categorie di tipi:
+-   **Tipi riferimento**
+    -   Riferimento a oggetti allocati sull'heap gestito
+    -   Indirizzi di memoria
+-   **Tipi valore**
+    -   Allocati sullo *stack* o parte di altri oggetti
+    -   Sequenza di byte
+
+### Tipi valore
+-   Tipi primitivi(*built-in*)
+    -   Int32
+    -   Single,Double
+    -   Decimal
+    -   Boolean
+    -   Char
+-   Tipi definiti dall'utente
+    -   **struct**
+    -   **enum**
+
+### Tipi riferimento
+Viene passata una copia del riferimento all’oggetto ed eventuali modificheranno
+effetto sulla copia e non sul riferimento originale.
+
+# Domanda su le possibili operazioni che si possono fare su un evento
+## Riepilogo evento
+-   **Event sender** - L'oggetto che scatena l'evento
+-   **Event receiver** - L'oggetto per il quale l'evento è determinante e che quindi desidera essere notificato
+-   **Event Handler** - Il metodo che viene eseguito all'atto della notifica
+
+Il meccaniscmo che collega sendere e receiver/handler è il **delegato**.
+-   Un evento incapsula un delegato
+-   Dichiarazione di un evento :   
+    -   ![](resources/event_1.png)
+-   Per richiamare un evento è necessario invogare un metodo On*NomeEvento*
+    -   ![](resources/event_2.png)
+-   L'invocazione dell'evento può avvenire soltanto all'interno della casse in cui è stato dichiarato (a meno che non sia **publi**)
+
+## Operazioni su eventi
+### Agganciarsi all'evento
+Aggiugnere un nuovo delecato all'evento mediante l'operatore +=
+Per iniziare a ricevere le notifiche di un evento, il cliente deve
+-   **Definire il metodo** *(event handler)* che dovrà essere invocato all'atto della notifica dell'evento ![](resources/event_3.png)
+-   **Creare un delegato** dello stesso tipo dell'evento, farlo riferire al metodo e aggiungerlo alla lista dei delegati associati all'evento. ![](resources/event_4.png)
+
+### Sganciarsi da un evento
+Rimuovere un delegato dall'evento mediante l'operatore -=
+** Rimuovere il delegato** dalla lista dei delegati associati all'evento
+![](resources/event_5.png)
+
+# Cosa si intende per fragilità del codice
+La fragilità del codice è un principio dei design pattern
+Per fragilità de codice intendiamo la tendenza del software di *rompersi* in diverse parti dopo ogni cambiamento. 
+Questo porta ad un problema in quanto ogni possibile fix del software genera errori secondari e quindi diventa complicato mantenere il software
+
+# Pre e post condizioni nel subclassing
+
+# Rigidità del software
+E' la difficoltà di applicare cambiamenti al software
+Ogni cambiamebto porta ad una serie di cambiamenti *in cascata* a moduli dipendenti.
+Questo porta alla paura di applicare fix a problemi non critici
+
+RIPARTIRE DA DOMANDA N.23
