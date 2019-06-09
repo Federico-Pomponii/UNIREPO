@@ -153,3 +153,30 @@ Sono classificati in
 -   **Pattern strutturali** - Risolvono problemi inerenti la composizione di classi o di oggetti.
 -   **Pattern comportamentali** - Risolvono problemi inerenti le modalità di interazione e di distribuzione delle responsabilità tra classi o tra oggetti.
 
+![](resources/pattern_1.png)
+
+# Scopo del modello evolutivo
+## Modelli evolutivi
+
+### Programmazione esplorativa
+Il prototipo, progressivamente, fluisce nel prodotto finale.
+Questo presuppone un lavoro a stretto contatto con il cliente.
+
+Esistono diversi tipo di modelli evolutivi, ma tutti in sostanza propongono un ciclo di sviluppo in cui un prototipo iniziale evolve, gradualmente, verso il prodotto finito.
+Il vantaggio è che ad ogni iterazione è possibile :
+- ***Raffinamento dell'analisi*** : rivedere specifiche e funzionalità.
+- ***Raffinamento del design*** : rivedere le scelte di progettazione.
+- I modelli evolutivi si sono orientati verso cicli sempre più
+brevi e iterazioni sempre più veloci, fino ad arrivare al
+modello più “radicale” che prende il nome di Extreme
+Programming (XP)
+
+### Applicabilità
+-   Sitstemi di piccoli dimensioni
+-   Sistemi che avranno breve durata
+-   Parti di sistemi più grandi
+
+### Problemi dei modelli evolutivi
+-   Il processo di sviluppo non è visibile.
+-   Il sistema è poco strutturato.
+-   E' richiesta una particolare abilità nella programmazione.
