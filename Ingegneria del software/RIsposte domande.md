@@ -32,6 +32,24 @@
   - [Protected](#protected)
   - [Internal](#internal)
   - [Protected Internal (OR)](#protected-internal-or)
+- [Bad Design](#bad-design)
+- [Principi premessa](#principi-premessa)
+  - [Principio zero - rasoio di occam](#principio-zero---rasoio-di-occam)
+  - [SEMPLICITÀ E SEMPLICISMO](#semplicit%C3%A0-e-semplicismo)
+  - [DIVIDE ET IMPERA](#divide-et-impera)
+  - [MAKE ALL OBJECT DATA PRIVATE](#make-all-object-data-private)
+- [OCP - The Open/Closed Principle](#ocp---the-openclosed-principle)
+- [LSP - Liskov Substituion Principle](#lsp---liskov-substituion-principle)
+  - [Design by Contract](#design-by-contract)
+- [Passaggio dei parametri](#passaggio-dei-parametri)
+- [WhiteBox and BlackBox Testing](#whitebox-and-blackbox-testing)
+  - [Black Box Testing](#black-box-testing)
+  - [White Box Testing](#white-box-testing)
+- [Capacità di sopravvivenza del sistema](#capacit%C3%A0-di-sopravvivenza-del-sistema)
+- [RUP - Rational Unified Process](#rup---rational-unified-process)
+  - [PROSPETTIVA DINAMICA](#prospettiva-dinamica)
+  - [PROSPETTIVA STATICA](#prospettiva-statica)
+  - [PROSPETTIVA PRATICA](#prospettiva-pratica)
 
 
 # Domanda tecnica su chi implementa cosa in un pattern visitors
@@ -291,5 +309,141 @@ The type or member can be accessed only by code in the same class or struct, or 
 The type or member can be accessed by any code in the same assembly, but not from another assembly.
 ## Protected Internal (OR)
 The type or member can be accessed by any code in the assembly in which it is declared, OR from within a derived class in another assembly. Access from another assembly must take place within a class declaration that derives from the class in which the protected internal element is declared, and it must take place through an instance of the derived class type.
+
+# Bad Design
+Si parla di bad design quando si ha
+-   **Incorrettezza** (*misdirection*) - Non sono soddisfatti i requisiti che il software deve rispettare
+-   **Rigidità del software**
+-   **Fragilità del software**
+-   **Immobilità del software** - Difficoltà di riutilizzare il software per progetti futuri
+-   **Viscosità** - Tendenza ad incoraggiare cambiamenti del software che modificano l'intento iniziale
+
+# Principi premessa
+## Principio zero - rasoio di occam
+E' un principio noto come il rasoio di Occam -> *Non bisogna introdurre concetti che non siano strettamente necessari*
+## SEMPLICITÀ E SEMPLICISMO
+La semplicità è un fattore importantissimo : il SW deve fare i conti con una notevole componente
+di complessità generata dal contesto quindi è importante non aggiungerne altra.
+“Keep it as simple as possible but not simpler” bisogna essere semplici ma non semplicistici
+## DIVIDE ET IMPERA
+La decomposizione è una tecnica fondamentale per il controllo e la gestione di complessità: la
+qualità della progettazione dipende direttamente dalla qualità delle scelte di decomposizione
+adottate.
+## MAKE ALL OBJECT DATA PRIVATE
+Usare dati pubblici è sempre un grosso rischi di aprire i moduli.
+
+# OCP - The Open/Closed Principle
+-   E' il più importante dei principi per scrivere entità riutilizzabili.
+-   Si basa sul principio che i moduli devono essere definiti in modo da tale da poter essere estesi senza essere modificati
+-   Si basa sull'utilizzo di **interfacce** o **classi astratte**
+
+# LSP - Liskov Substituion Principle
+LSP costituisce una guida per creare le classi concrete dell'OCP mediante **ereditarietà**
+La principale causa di violazioni al principio di Liskov è data dalla *ridefinizione di metodi virtuali* nella classi derivate.
+La chiave per evitare tali violazioni risiede nel **Design by Contract**
+## Design by Contract
+Nel Design by Contract ogni metodo ha:
+-   **pre-condizioni** - requisiti minimi che devono essere soddisfatti dal chiamante perché i metodo possa essere eseguiti correttamente
+-   **post-condizioni** - requisiti che devono essere soddisfatti dal metodo in caso di esecuzione corretta
+-   Queste due condizioni costituiscono un *contratto* tra chiamante e metodo
+-   Quando un metodo viene ridefinito in una sottoclasse:
+    -   Le pre-condizioni devono essere identiche o meno stringenti
+    -   Le post-condizioni devono essere identiche o più stringenti
+
+![](resources/dbc_1.png)
+
+# Passaggio dei parametri
+
+# WhiteBox and BlackBox Testing
+Sono due test non funzionali di *rottura* del sistema che devono essere condotti da esperti di sciurezza
+## Black Box Testing
+-   Ha come assunzione di base la non conoscenza dell'applicazione
+-   I tester affrontano l'applicazione come farebbe un *attaccante*
+    -   Indagando su informazioni di struttura interna
+    -   Successivamente attaccando il sistema sulle informazioni ottenute
+-   Questo test prende in considerazione anche test mirati al livello infrastrutturale
+
+## White Box Testing
+- Questo test assume la piena conoscenza dell'applicazione
+- I tester hanno accesso al codice sorgente e alle informazioni di configurazione
+  - Essi cercano possibili debolezze
+- Tipicamente i tester sono ex-sviluppatori
+
+
+# Capacità di sopravvivenza del sistema
+Si intende la capacità del sistema di continuare a fornire i servizi essenziali agli utenti legittimi:
+-   mentre è sotto attacco
+-   dopo che parti del sistema sono state danneggiata
+
+La capacità di sopravvivenza è una proprietà dell'intero sistema e non dei signoli componenti che lo compongono
+***La disponibilità dei servizi critici è l'essenza della sopravvivenza***
+Questo significa conoscere
+-   Quali sono i servizi maggiormente critici
+-   Come questi servizi possono essere compromessi
+-   Qual è la qualità minima dei servizi che deve essere mantenuto
+-   Come proteggere questi servizi
+-   Come ripristinare velocemente il sistema se i servizi diventano non disponibili
+
+
+# RUP - Rational Unified Process
+Non definisce un singolo, specifico processo, bensì un
+framework adattabile che può dar luogo a diversi processi
+in diversi contesti (per esempio in diverse organizzazioni o
+nel contesto di progetti con diverse caratteristiche).
+E' pensato per progetti di grandi dimensioni.
+
+RUP individua tre diverse versioni del processo di sviluppo:
+-   Una prospettiva dinamica che mostra le fasi del modello nel tempo
+-   Una prospettiva statica che mostra le attività del processo coinvolte
+-   Una prospettiva pratica che suggerisce le buone prassi da seguire durante il processo
+
+## PROSPETTIVA DINAMICA
+***Inception(Avvio)*** - Generalizzazione dell'analisi di fattibili. Lo scopo principale è quello di delinare nel modo più accurato il business case ovvero:
+-   Comprendere il *tipo di mercato* al quale il progetto afferisce e identificare gli elementi importanti affinché esso conduca a un successo commerciale.
+-   Identificare tutte le *entità esterne* che interagiranno con il sistema e definire tali interazioni.
+
+***Elaboration(Elaborazione)*** - definisce la struttura complessiva del sistema. Comprende l'analisi di dominio e una prima fase di progettazione dell'architettura. L'elaborazione deve soddisfare i seguenti criteri : 
+-   Modello dei casi d'uso completo all'80%
+-   Descrizione dell'architettura del sistema
+-   Sviluppo di un'architettura esegubile che dimostri il completamento degli use case significativi
+-   Revisione del business case e dei rischi
+-   Pianificazione del progetto complessivo
+  
+***Construction(Costruzione)*** - Progettare, programmare e testare il sistema:
+-   Le diverse parti del sistema vengono sviluppate parallelamente e poi integrate
+-   Al termine della fase si dovrebbe avere un sistema software funzionane e la relativa documentazione pronta
+
+***Transition(Transizione)*** - Il sistema passa dall'ambiente di sviluppo a quello del cliente finale:
+-   Vengono condotte attivitù di training degli utenti e beta testing.
+-   Si deve in particolare verificare che il prodotto sia conforme alle aspettative descritte nella fase di inception.
+
+## PROSPETTIVA STATICA
+La prospettiva statica di RUP si concentra sulle attività di produzione del software (*** workflow ***).
+RUP è stato progettato insieme ad UML quindi, la descrizione dei workflow, è orientata ai modelli UML.
+-   **WORKFLOW PRINCIPALI**
+    -   ***Modellazione delle attività principali***: i processi aziendali sono modellati utilizzando il business case.
+    -   ***Requisiti***: vengono identificati gli attori che interagiscono con il sistema e sviluppati i casi d'uso per modellare i requisiti.
+    -   ***Analisi e progetto***: viene creato e documentato un modello di progetto.
+    -   ***Implementazione***: i componenti del sistema sono implementati e strutturati.
+    -   ***Test***
+    -   ***Rilascio***: viene creata una release del prodotto.
+
+-   **WORKFLOW DI SUPPORTO**
+    -   ***Gestione della configurazione e delle modifiche***: workflow di supporto che gestisce i cambiamenti del sistema.
+    -   ***Gestione del progetto***: gestisce lo sviluppo del sistema.
+    -   ***Ambiente***: rende disponibili al team di sviluppatori gli strumenti adeguati
+
+
+## PROSPETTIVA PRATICA
+La prospettiva pratica di RUP descrive la buona prassi che si consiglia di utilizzare nello sviluppo dei sistemi.
+Le pratiche fondamentale sono sei:
+-   ***Sviluppare il software ciclicamente***: Sviluppare e consegnare le funzioni con la priorità più alta all'inizio del processo di sviluppo.
+-   ***Gestire i requisiti***: documentare esplicitamente i requisiti del cliente e i cambiamenti effettuati
+-   ***Usare architetture basate sui componenti***: strutturare l'architettura del sistema con approccio a componenti.
+-   ***Creare modelli visivi del software***: usare modelli grafici UML
+-   ***Verificare la qualità del software***: assicurarsi che il software raggiunga gli standard qualitativi
+-   ***Controllare le modifiche del software***: gestire i cambiamenti del software usando un sistema per la gestione delle modifiche.
+
+
 
 RIPARTIRE DA DOMANDA N.23
