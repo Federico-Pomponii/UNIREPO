@@ -208,3 +208,29 @@ Esistono due categorie di tipi:
 ### Tipi riferimento
 Viene passata una copia del riferimento all’oggetto ed eventuali modificheranno
 effetto sulla copia e non sul riferimento originale.
+
+# Domanda su le possibili operazioni che si possono fare su un evento
+## Riepilogo evento
+-   **Event sender** - L'oggetto che scatena l'evento
+-   **Event receiver** - L'oggetto per il quale l'evento è determinante e che quindi desidera essere notificato
+-   **Event Handler** - Il metodo che viene eseguito all'atto della notifica
+
+Il meccaniscmo che collega sendere e receiver/handler è il **delegato**.
+-   Un evento incapsula un delegato
+-   Dichiarazione di un evento :   
+    -   ![](resources/event_1.png)
+-   Per richiamare un evento è necessario invogare un metodo On*NomeEvento*
+    -   ![](resources/event_2.png)
+-   L'invocazione dell'evento può avvenire soltanto all'interno della casse in cui è stato dichiarato (a meno che non sia **publi**)
+
+## Operazioni su eventi
+### Agganciarsi all'evento
+Aggiugnere un nuovo delecato all'evento mediante l'operatore +=
+Per iniziare a ricevere le notifiche di un evento, il cliente deve
+-   **Definire il metodo** *(event handler)* che dovrà essere invocato all'atto della notifica dell'evento ![](resources/event_3.png)
+-   **Creare un delegato** dello stesso tipo dell'evento, farlo riferire al metodo e aggiungerlo alla lista dei delegati associati all'evento. ![](resources/event_4.png)
+
+### Sganciarsi da un evento
+Rimuovere un delegato dall'evento mediante l'operatore -=
+** Rimuovere il delegato** dalla lista dei delegati associati all'evento
+![](resources/event_5.png)
