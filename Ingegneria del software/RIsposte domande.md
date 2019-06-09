@@ -63,3 +63,23 @@ In sintesi il pattern VISITOR:
 ![](resources/assembly_2.png)
 
 # Domanda su cls di .net
+Il **Common Language Specification**
+-   Definisce le regole di compatibilità tra linguaggi
+    -   Regole per gli identificatori
+        -   Unicode, case-sensitivity
+        -   Keyword
+    - Regole per denominazione proprietà ed eventi
+    - Regole per costruttori degli oggetti
+    - Regole di overload più restrittive
+    - Ammesse interfacce multiple con metodi con lo stesso nome
+    - Non ammessi puntatori unmanaged
+
+![](resources/cls_1.png)
+
+-   Regole
+    - Information hiding a livello di assembly
+    - Information hiding a livello di classe
+    - Information hiding a livello di field
+-   Costanti: il nome dovrebbe iniziare con una lettera maiuscola e solitamente deve essere pubblica
+-   Field: il nome deve iniziare con ‘_’ seguito da lettera minuscola e deve essere privato
+-   Field read-only: une delle due convenzioni precedenti
