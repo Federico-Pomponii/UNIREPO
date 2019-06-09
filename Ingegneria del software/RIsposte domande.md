@@ -234,3 +234,17 @@ Per iniziare a ricevere le notifiche di un evento, il cliente deve
 Rimuovere un delegato dall'evento mediante l'operatore -=
 ** Rimuovere il delegato** dalla lista dei delegati associati all'evento
 ![](resources/event_5.png)
+
+# Cosa si intende per fragilità del codice
+La fragilità del codice è un principio dei design pattern
+Per fragilità de codice intendiamo la tendenza del software di *rompersi* in diverse parti dopo ogni cambiamento. 
+Questo porta ad un problema in quanto ogni possibile fix del software genera errori secondari e quindi diventa complicato mantenere il software
+
+# Pre e post condizioni nel subclassing
+
+# Rigidità del software
+E' la difficoltà di applicare cambiamenti al software
+Ogni cambiamebto porta ad una serie di cambiamenti *in cascata* a moduli dipendenti.
+Questo porta alla paura di applicare fix a problemi non critici
+
+RIPARTIRE DA DOMANDA N.23
