@@ -105,7 +105,51 @@ Il FlyWeight è un pattern **Strutturale**.
 ![](resources/flyweight_1.png)
 
 # Pattern che usano la delega
--   Il pattern **Observer** offre una soluzione ***delegate-based*** *callback_relationship*
+-   **Boss-worker** offre una soluzione ***delegate-based*** *callback_relationship*
 -   L' ***AlignerBase*** del pattern **Strategy** delega alle sue sottoclassi l'allineamendot delle singole linee
 -   Nel pattern **Decorator** quando un oggetto cambia stato, cambia anche comportamento utilizzando un pattern **State** che utilizza un meccanismo di delega, grazie al quale l'oggetto è in grado di comportarsi come se avesse cambiato classe.
+
+# Quale pattern NON usa la composizione e delega
+I pattern che utilizzano Adapter e che non utilizzano Composite e Decorator
+-   Pattern **Observer** (?)
+
+# Domanda sui rischi tecnologici
+## Analisi e gestione dei rischi
+-   Analisi completa di tutti i possibili rischi che posso fare fallori o intralciare la realizzazione del sistema
+-   Ogni rischio presenta due carratteristiche:
+    -   Probabilità che avvenga
+    -   Costo
+
+Le tipologie di rischi sono:
+-   **Rischi relativi ai requisiti**
+-   **Rischi relativi alle risorse umane**
+-   **Rischi relativi alla protezione e privacy dei dati**
+-   **Rischi tecnologici** :
+    -   
+-   **Rischi politici**
+
+Strategie risolutive:
+-   **Strategia reattiva**
+-   **Strategia preventiva**
+    -   Si mette in moto prima che inizi il lavoro tecnico
+    -   Si individuano rischi potenziali, se ne valutano le probabilità e si stabilisce un ordine di importanza
+    -   Si predispone un piano che permetta di reagire in modo controllato ed efficace.
+
+# Definizione di design pattern
+*"Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use the olution a million times over, without ever doing it the same way twice"*
+1977 - Christoper Alexander
+**Obiettivi**
+-   Risolvere problemi progettuali specifici
+-   Rendere i progetti OO più flessibili e riutilizzabili
+
+Ogni design pattern ha quattro elementi essenziali
+-   **Nome** - Identifica il pattern
+-   **Problema** - Descrive quando applicare il pattern
+-   **Soluzinoe** - Descrive il pattern, cioè gli elementi che lo compongono e le loro relazioni, responsabilità e collaborazioni.
+-   **Conseguenze** - Descrivono svantaggi e vantaggi dell'applicazione del pattern.
+
+Sono classificati in
+-   **Pattern di creazione** - Risolvono problemi inerenti il processo di creazione degli oggetti
+-   **Pattern strutturali** - Risolvono problemi inerenti la composizione di classi o di oggetti.
+-   **Pattern comportamentali** - Risolvono problemi inerenti le modalità di interazione e di distribuzione delle responsabilità tra classi o tra oggetti.
 
