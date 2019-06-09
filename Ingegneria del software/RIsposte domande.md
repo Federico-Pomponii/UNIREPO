@@ -83,3 +83,29 @@ Il **Common Language Specification**
 -   Costanti: il nome dovrebbe iniziare con una lettera maiuscola e solitamente deve essere pubblica
 -   Field: il nome deve iniziare con ‘_’ seguito da lettera minuscola e deve essere privato
 -   Field read-only: une delle due convenzioni precedenti
+
+# Dire di che tipo deve essere il type di un event
+
+# Pattern FLyWeight
+Il FlyWeight è un pattern **Strutturale**.
+-   Descrive come condividere oggetti *leggeri* in modo tale che il loro uso non sia troppo costoso
+-   E' un oggetto condiviso utilizzabile simultaneamente da più clienti.
+-   E' svincolato dal contesto in cui opera
+-   E' ottenibile soltanto mediante una **FlyweightFactory**
+
+**Stato intrinseco**
+-   Non dipende dal contesto di utilizzo e quindi può essere condiviso da tutti i clienti
+-   E' memorizzato nel Flyweight
+
+**Stato estrinseco**
+-   Dipende dal contesto di utilizzo e quindi non può essere condiviso dai clienti
+-   Calcolato dal cliente
+-   Viene passato al Flyweight quando viene invocat una sua operazione
+
+![](resources/flyweight_1.png)
+
+# Pattern che usano la delega
+-   Il pattern **Observer** offre una soluzione ***delegate-based*** *callback_relationship*
+-   L' ***AlignerBase*** del pattern **Strategy** delega alle sue sottoclassi l'allineamendot delle singole linee
+-   Nel pattern **Decorator** quando un oggetto cambia stato, cambia anche comportamento utilizzando un pattern **State** che utilizza un meccanismo di delega, grazie al quale l'oggetto è in grado di comportarsi come se avesse cambiato classe.
+
