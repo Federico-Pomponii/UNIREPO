@@ -180,3 +180,31 @@ Programming (XP)
 -   Il processo di sviluppo non è visibile.
 -   Il sistema è poco strutturato.
 -   E' richiesta una particolare abilità nella programmazione.
+
+# Domanda su tipi valore e tipi riferimento
+## CTS - Common Type System
+![](resources/type_1.png)
+
+La classe radice è **System.Object**
+Esistono due categorie di tipi:
+-   **Tipi riferimento**
+    -   Riferimento a oggetti allocati sull'heap gestito
+    -   Indirizzi di memoria
+-   **Tipi valore**
+    -   Allocati sullo *stack* o parte di altri oggetti
+    -   Sequenza di byte
+
+### Tipi valore
+-   Tipi primitivi(*built-in*)
+    -   Int32
+    -   Single,Double
+    -   Decimal
+    -   Boolean
+    -   Char
+-   Tipi definiti dall'utente
+    -   **struct**
+    -   **enum**
+
+### Tipi riferimento
+Viene passata una copia del riferimento all’oggetto ed eventuali modificheranno
+effetto sulla copia e non sul riferimento originale.
