@@ -56,6 +56,11 @@
 - [GDPR - General Data Protection Regulation](#gdpr---general-data-protection-regulation)
   - [Pseudonimizzazione](#pseudonimizzazione)
     - [Principi](#principi)
+- [Metadati e reflection .NET7](#metadati-e-reflection-net7)
+  - [Metadati](#metadati)
+  - [Reflection](#reflection)
+  - [Custom attributes](#custom-attributes)
+- [Meta programmin in .NET](#meta-programmin-in-net)
 
 
 # Domanda tecnica su chi implementa cosa in un pattern visitors
@@ -480,3 +485,28 @@ I dati personali devono essere
 -   Raccolti per finalità determinate, esplicite e legittime e successivamente trattati in modo non incompatibile con tali finalità
 -   Adeguati, pertinenti e limitati a quanto necessario rispetto alle finalità per le quali sono tratti *("minimizzazione dei dati")*
 -   esatti e, se necessariom aggiornati: devono essere prese tutte le misure ragionevoli per cancellare o rettificare tempestivamente i dati inesatti rispetto alle finalità per le quali sono trattati.
+
+# Metadati e reflection .NET7
+## Metadati
+*"Metadata is data that describes other data. For example, the definition of a class is metadata"*
+I metadati si occupano di far si che un componente abbia abbastanza informazioni per essere auto descritto. I metadati in .NET sono generati dalla definizione del tipo, salvati con essa e utilizzabili a runtime.
+
+## Reflection
+Reflection indica la possibilità di ottenere le informazioni relative ai tipi  contenuti in un assembly a run-time. Infatti tramite il namespace System.Reflection il .NET Framework fornisce una serie di API per analizzare assemblies e oggetti, consentendo addirittura di invocare direttamente i metodi di una classe, o di accedere alle sue proprietà.
+Per utilizzare la reflection in C# utilizziamo l'invocazione
+```C#
+using System.Reflection;
+//POI CARICO L'ASSEMBLY DA ANALIZZARE
+Assembly asm = Assembly.LoadFrom("myAssembly.dll"); 
+```
+
+System.type è il punto focale della Reflection. Tutti gli oggetti e i valori sono istanze di tipo. Type è in grado di scoprire il tipo di un oggetto (o di un valore) e referenziare i tipi con nomi simbolici, gli stessi tipo sono istanze di Type
+![](resources/reflection_1.png)
+
+## Custom attributes
+Sono il modo semplice per aggiungere informazioni ai metadati per ogni elemento dell'applicazione.
+Possono essere usati in modo che i client possano automaticamente usare certe funzionalità visibili tramite reflection.
+
+# Meta programmin in .NET
+Può essere usato per creare dinamicamente nuove classi, inserirle in una struttura già esistente e istanziarle.
+System.Reflection permette di creare assembly al volo.
