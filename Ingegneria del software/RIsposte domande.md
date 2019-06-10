@@ -1,4 +1,6 @@
 - [Domanda tecnica su chi implementa cosa in un pattern visitors](#domanda-tecnica-su-chi-implementa-cosa-in-un-pattern-visitors)
+  - [Quando usare il pattern visitor](#quando-usare-il-pattern-visitor)
+  - [Limiti del pattern visitor](#limiti-del-pattern-visitor)
 - [Quali sono i pattern comportamentali, quali costruttivi e quali strutturali](#quali-sono-i-pattern-comportamentali-quali-costruttivi-e-quali-strutturali)
 - [Domanda su .net assembly (Come funzionano) , metadati](#domanda-su-net-assembly-come-funzionano--metadati)
   - [Il .NET assembly](#il-net-assembly)
@@ -50,6 +52,10 @@
   - [PROSPETTIVA DINAMICA](#prospettiva-dinamica)
   - [PROSPETTIVA STATICA](#prospettiva-statica)
   - [PROSPETTIVA PRATICA](#prospettiva-pratica)
+- [Attori](#attori)
+- [GDPR - General Data Protection Regulation](#gdpr---general-data-protection-regulation)
+  - [Pseudonimizzazione](#pseudonimizzazione)
+    - [Principi](#principi)
 
 
 # Domanda tecnica su chi implementa cosa in un pattern visitors
@@ -86,6 +92,15 @@ In sintesi il pattern VISITOR:
 -   Ogni visitor concreto
     -   Raggruppa i metodi necessare ad eseguire una data operazione
     -   Nasconde i dettagli di come tale operazione debba essere eseguita
+
+## Quando usare il pattern visitor
+-   Il vantaggio di questo pattern è che se la logica dell’operazione cambia (ad es. logiche sul numero di pezzo per calcolare lo sconto) allora dobbiamo apportare modifiche solo all’implementazione del visitatore piuttosto che farlo in tutte le classi oggetto.
+-   Un altro vantaggio è che l’aggiunta di un nuovo elemento al sistema è semplice, richiederà modifiche solo nell’interfaccia e nell’implementazione del visitatore e le classi di Item concreti esistenti non saranno interessate.
+
+## Limiti del pattern visitor
+-   Lo svantaggio del pattern visitator è che dovremmo conoscere il tipo di ritorno dei metodi visit () al momento della progettazione altrimenti dovremo modificare l’interfaccia e tutte le sue implementazioni (nel nostro esempio era noto a priori il tipo di ritorno del metodo visit(), ovvero un double essendo il prezzo un numero non intero).
+-   Un altro svantaggio è la verbosità di tale pattern: i ConcreteElement devono implementare una particolare interfaccia per essere visitati  e occorre prevedere nell’interfaccia e implementazione del Visitor il metodo di visita per ciascun tipo.
+
 
 # Quali sono i pattern comportamentali, quali costruttivi e quali strutturali
 ![](resources/pattern_1.png)
@@ -444,6 +459,24 @@ Le pratiche fondamentale sono sei:
 -   ***Verificare la qualità del software***: assicurarsi che il software raggiunga gli standard qualitativi
 -   ***Controllare le modifiche del software***: gestire i cambiamenti del software usando un sistema per la gestione delle modifiche.
 
+# Attori
+Nella prospettiva statica del RUP nei requisiti vengono individuati gli attori... Anche nello studio dei casi d'uso e scenari.
 
+# GDPR - General Data Protection Regulation
+Dal 25/5/2018 sostituisce la **DPR** (*Data Protection Directive).
+- Obbligo di aderenza, di un prodotto software che tratti dati personali, ai principi della GDPR
+  - Privaci by design & by default
+  - Minimalità, proporzionalità
+  - Anonimizzazione, pseudonimizzazione
+  - Trasferimento dati fuori dalle EU
+  - Adeguatezza delle misure di sicurezza
 
-RIPARTIRE DA DOMANDA N.23
+## Pseudonimizzazione
+E' il processo di trattamenteo dei dati personali in modo tale che i dati non possano più essere attribuiti ad un interessato specifico senza l'utilizzo di informazioni aggiuntive. Queste informazioni aggiuntiv devono essere conservate separatamente e soggette a misure tecniche e organizzative intese a garantire la non attribuzione a una persona identificata o identificabile.
+
+### Principi
+I dati personali devono essere
+-   Trattati in modo lecito, equo e trasparente nei confronti dell'interessato
+-   Raccolti per finalità determinate, esplicite e legittime e successivamente trattati in modo non incompatibile con tali finalità
+-   Adeguati, pertinenti e limitati a quanto necessario rispetto alle finalità per le quali sono tratti *("minimizzazione dei dati")*
+-   esatti e, se necessariom aggiornati: devono essere prese tutte le misure ragionevoli per cancellare o rettificare tempestivamente i dati inesatti rispetto alle finalità per le quali sono trattati.
