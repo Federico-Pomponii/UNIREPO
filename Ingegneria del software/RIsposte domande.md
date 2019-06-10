@@ -61,6 +61,12 @@
   - [Reflection](#reflection)
   - [Custom attributes](#custom-attributes)
 - [Meta programmin in .NET](#meta-programmin-in-net)
+- [Pattern Observer](#pattern-observer)
+- [Pattern strategy](#pattern-strategy)
+- [Pattern Adapter](#pattern-adapter)
+- [Pattern Composite](#pattern-composite)
+- [Pattern Visitor](#pattern-visitor)
+- [Pattern State](#pattern-state)
 
 
 # Domanda tecnica su chi implementa cosa in un pattern visitors
@@ -510,3 +516,52 @@ Possono essere usati in modo che i client possano automaticamente usare certe fu
 # Meta programmin in .NET
 Può essere usato per creare dinamicamente nuove classi, inserirle in una struttura già esistente e istanziarle.
 System.Reflection permette di creare assembly al volo.
+
+# Pattern Observer
+Si basa sul concetto che l'aggiornamento di un oggetto può richiedere l'aggiornamento di altri oggetti.
+Questo pattern trova applicazione nei casi in cui diversi oggetti (**Observer**) devono conoscere lo stato di un oggetto(**Subject**).
+
+![](resources/observer_1.png)
+
+-   **Subject** - Classe Observable
+    -   Ha conoscenza dei propri Observer i quali possono essere illumiati
+    -   Fornisce operazioni per l'aggiunta e la cancellazione di observer
+    -   Fornisce operazioni per la notifica agli observer
+-   **Observer** - Interfaccia Observer
+    -   Specifica un'interfaccia per la notifica di eventi agli oggetti interessati in un **Subject**.
+-   **ConcreteSubject**
+    -   Mantiene lo stato del soggetto osservato e notifica gli observer in caso di un cambio di stato
+-   **ConcreteObserver**
+    -   Impemente l'interfaccia dell'Observer definendo il comportamento in caso di cambio di stato del soggetto osservato.
+
+# Pattern strategy
+Si tratta di un pattern comportamentale basato su oggetti.
+Permette di 
+-   Definire un insieme di algoritmi tra loro correlati
+-   Incapsulare tali algoritmi in una gerarchia di classi
+-   Rendere gli algoritmi intercambiabili
+
+E' compsto dai seguenti partecipanti:
+-   **Strategy** - Dichiara un'interfaccia che verrà invocata dal Context in base all'algoritmo prescelto
+-   **ConcreteStrategy** - effettua 'overwrite del metodo del Context al fine di ritornare l'implementazione dell'algoritmo.
+-   **Context** - Detiene le informazioni di contesto ed ha il compito di invocare l'algoritmo.
+
+![](resources/strategy_1.png)
+
+# Pattern Adapter
+Converte l'interfaccia originale di una classe nell'interfaccia che si aspetta il cliente.
+Permette a classi che hanno interfacce incompatibili di lavorare insieme.
+Si usa quando
+-   Si vuole riutilizzare una classe esistente
+-   L'interfaccia di una classe non è conforme a quella desiderata
+
+![](resources/adapter_1.png)
+
+# Pattern Composite
+Da finire
+
+# Pattern Visitor
+Da finire
+
+# Pattern State
+Da finire
