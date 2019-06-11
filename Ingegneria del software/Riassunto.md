@@ -39,14 +39,15 @@
     - [Inclusione <<include>>](#inclusione-include)
     - [Estensione <<extend>>](#estensione-extend)
 - [Diagrammi UML - MOD 2.5](#diagrammi-uml---mod-25)
+- [Requisiti sicurezza e privacy](#requisiti-sicurezza-e-privacy)
 
 
 # Modello - MOD.2
-Per modello si
- intende una rappresentazione di un oggetto o di un fenomeno reale che riproduce caratteristiche o comportamentei ritenuto fondamentali per il tipo di ricerca che si sta svolgendo.
-Per l'Ingegneria del software un modello costituisce una visione semplificata di un sistema che rende il sistema stesso
+Per modello si intende una rappresentazione di un oggetto o di un fenomeno reale che riproduce caratteristiche o comportamentei ritenuti fondamentali per il tipo di ricerca che si sta svolgendo.
+Per l'Ingegneria del software un modello costituisce un insieme di **concetti** e **proprietà** volti a catturare aspetti **essenziali** di un sistema, collocandosi in un preciso spazio concettuale.
+Per l'ingegneria del software un modello costituisce una *visione semplificata* che rende il sistema stesso
 - Più acessibile alla comprensione e alla valutazione
-- Facilità il trasferimento di informazione e collaborazione tra persone
+- Facilita il trasferimento di informazione e collaborazione tra persone
 
 ## Modelli del sistema
 Attraverso l'uso di diagrammi si cerca di rappresentare ***modelli del sistema*** per:
@@ -63,7 +64,7 @@ Un linguaggio di modellazione è un linguaggi ***semi-formale*** che può essere
 Quello che si esprime attraverso i diagrammi è una rappresentazione del modello creata attraverso l'uso di un linguaggio (Ad esempio ***UML, OPM o XML*** )
 
 ### Modelli e codice
-Tipicamente il disallineamento tra modello e codice avviene già durante la fase di implementazione. 
+Tipicamente il disallineamento tra modello e codice avviene già durante la fase di implementazione. Alcune modifiche fatte nel codice non vengono *quasi mai* rifless e nei modelli di progettazione del sistema. Viene meno quindi il requisito di tracciabilità.
 
 ## Modelli di processo
 Un processo di sviluppo è un insieme ordinato di passi fine alla produzione dell'output desiderato a partire dai requisiti in ingresso.
@@ -90,8 +91,10 @@ Fasi distinte, in cascata tra loro, con retroazione finale.
 Il modello si fonda sul presupposto che ogni fase deve essere svolto in maniera esaustiva prima di passare alla successiva. Questo in quanto introdurre cambiamenti al software, in fasi avanzate dello sviluppo, ha costi elevati.
 Le uscite che una fase produce come ingresso per la fase successiva sono chiamate ***semilavorati***
 I limiti di questo modello sono dati dalla sua *rigidità* in quanto ci sono due assunti di fondo:
--   ***Immutabilità dell'analisi***
--   ***Immutabilità del progetto***
+-   ***Immutabilità dell'analisi*** - i clienti sono in grado di esprimere esattamente le loro esigenze e, di conseguenza, in fase di analzi iniziale è possibile definire esattamente tutte le funzionalitù che il software deve realizzare.
+-   ***Immutabilità del progetto*** - è possibile progettare l'intero sistema prima di aver scritto una sola riga di codice
+
+Per evitare problemi, prima di iniziare a lavorare sul sistema vero e proprio, è meglio realizzare un prototipo
 
 #### Prototipo
 Il prototipo ha l'obiettivo di essere mostrato al cliente per ottenere indicazioni sulle specifiche del progetto. Deve essere sviluppabile in tempi brevi e con costi minimi.
@@ -101,9 +104,14 @@ Prima di iniziare a lavorare sul sistema viene fornito, al cliente, un prototipo
 
 
 ### Modelli evolutivi
+Partendo da specifiche molto astratte si sviluppa un primo prototipo da
+- Sottoporre al cliente
+- raffinare successivamente
+
+![](evolutivi_1.png)
 
 #### Programmazione esplorativa
-Il prototipo, progressivamente, fluisce nel prodotto finale.
+Il prototipo, progressivamente, fluisce nel prodotto feinale.
 Questo presuppone un lavoro a stretto contatto con il cliente.
 
 Esistono diversi tipo di modelli evolutivi, ma tutti in sostanza propongono un ciclo di sviluppo in cui un prototipo iniziale evolve, gradualmente, verso il prodotto finito.
@@ -112,12 +120,14 @@ Il vantaggio è che ad ogni iterazione è possibile :
 - ***Raffinamento del design*** : rivedere le scelte di progettazione.
 
 #### Problemi dei modelli evolutivi
--   Il processo di sviluppo non è visibile.
--   Il sistema è poco strutturato.
--   E' richiesta una particolare abilità nella programmazione.
+-   Il processo di sviluppo non è visibile. (Documentazione non disponibile)
+-   Il sistema è poco strutturato. (Modifiche frequenti)
+-   E' richiesta una particolare abilità nella programmazione. (Team ristretto)
 
 ### Modelli ibridi
 Si tratta di sistemi composti da sotto-sistemi. Per ogni sotto-sistema è possibile adottare un diverso modello di sviluppo.
+- Modello evolutivo -> per sotto-sistemi con specifiche ad alto rischio
+- Modello a cascata -> per sotto-sistemi con specifiche ben definite
 
 ### Sviluppo incrementale
 -   Si costruisce un sistema sviluppandone sistematicamente e in sequenza parti ben definite.
@@ -125,6 +135,7 @@ Si tratta di sistemi composti da sotto-sistemi. Per ogni sotto-sistema è possib
 
 ### Sviluppo iterativo
 Si effettuano molti passi dell'intero cicli di sviluppo del software, per costruire, iterativamente tutto il sistema.
+***Non funziona bene per progetti significativi***
 
 ### Sviluppo incrementale - iterativo
 - Si individuano sottoparti relativamente autonome
@@ -132,7 +143,11 @@ Si effettuano molti passi dell'intero cicli di sviluppo del software, per costru
 - Si continua con altre parti
 - Si aumenta, progressivamente, l'estensione e il dettaglio dei protitipi.
   
+![](resources/increm_iter.png)
+
 ### RUP - Rational Unified Process
+RUP (estensione dello *Unified Process*) è un modello di processo iterativo sviluppato da Rational Software (oggi parte di IBM).
+E' un modello ibrido che contiene elementi di tutti i modelli di processo generici.
 Non definisce un singolo, specifico processo, bensì un
 framework adattabile che può dar luogo a diversi processi
 in diversi contesti (per esempio in diverse organizzazioni o
@@ -168,7 +183,7 @@ RUP individua tre diverse versioni del processo di sviluppo:
 La prospettiva statica di RUP si concentra sulle attività di produzione del software (*** workflow ***).
 RUP è stato progettato insieme ad UML quindi, la descrizione dei workflow, è orientata ai modelli UML.
 -   **WORKFLOW PRINCIPALI**
-    -   ***Modellazione delle attività principali***: i processi aziendali sono modellati utilizzando il business case.
+    -   ***Modellazione delle attività aziendali***: i processi aziendali sono modellati utilizzando il business case.
     -   ***Requisiti***: vengono identificati gli attori che interagiscono con il sistema e sviluppati i casi d'uso per modellare i requisiti.
     -   ***Analisi e progetto***: viene creato e documentato un modello di progetto.
     -   ***Implementazione***: i componenti del sistema sono implementati e strutturati.
@@ -220,8 +235,8 @@ Sono elenchi di servizi che il sistema dovrebbe fornire e per ogni servizio dovr
 -   In alcuni casi specificare cosa il sistema non dovrebbe fare
 
 Le specifiche dei requisiti funzionali dovrebbero essere:
-    - **Complete**
-    - **Coerenti**
+    - **Complete** - Tutti i servizi definiti
+    - **Coerenti** - I requisiti non devono avere definizioni contraddittorie
 
 ### Requisiti non funzionali
 I principali tipi di requisiti non funzionali sono:
@@ -235,10 +250,13 @@ CASE tool e linguaggi di implementazione, limiti di budget, requisiti
 di consegna e milestones..*
 
 - **Requisiti esterni**: si identificano tutti i requisiti che derivano da fattori non provenienti dal sistema e dal suo processo di sviluppo.
+  - ES. Legislazioni sulla privacy dei dati
 
 ### Requisiti di dominio
 Derivano dal dominio di applicazione del sistema e solitamente si riferiscono ai suoi concetti.
 L'analisi deve coinvolgere gli esperti del dominio per chiarire ogni dubbio sulla terminologia.
+
+![](resources/requisiti_1.png)
 
 ## Raccolta dei requisiti
 -   L'obiettivo è raccogliere tutte le informazioni su cosa il sistema deve fare secondo le intenzioni del cliente. Non prevede passi formali in quano dipende dal particolare tipo di problema
@@ -335,3 +353,11 @@ Si utilizza quando è necessario aggiungere un comportamento opzionale a un caso
 
 # Diagrammi UML - MOD 2.5
 E' un *linguaggio* che serve per visualizzare, specificare, costruire e documentare un sistema e gli elaborati prodotti durante il suo sviluppo.
+
+# Requisiti sicurezza e privacy
+Dal 25/5/2018 vi è l'obbligo di aderenza di un prodotto software, che tratti dati personali, ai principi della GDPR.
+
+** Pseudonimizzazione **:  processo di trattamento dei dati personali in modo tale che i dati non possano più essere attribuiti ad un interessato specifico senza l'utilizzo di informazioni aggiuntive, sempre che tali informazioni
+aggiuntive siano conservate separatamente e soggette a misure tecniche e organizzative intese a garantire la non attribuzione a una persona identificata o identificabile.
+
+*"La pseudonimizzazione è una tecnica che consiste nel conservare i dati in una forma che impedisce l’identificazione del soggetto senza l'utilizzo di informazioni aggiuntive."*
