@@ -1,6 +1,3 @@
-- [Domanda tecnica su chi implementa cosa in un pattern visitors](#domanda-tecnica-su-chi-implementa-cosa-in-un-pattern-visitors)
-  - [Quando usare il pattern visitor](#quando-usare-il-pattern-visitor)
-  - [Limiti del pattern visitor](#limiti-del-pattern-visitor)
 - [Quali sono i pattern comportamentali, quali costruttivi e quali strutturali](#quali-sono-i-pattern-comportamentali-quali-costruttivi-e-quali-strutturali)
 - [Domanda su .net assembly (Come funzionano) , metadati](#domanda-su-net-assembly-come-funzionano--metadati)
   - [Il .NET assembly](#il-net-assembly)
@@ -61,57 +58,15 @@
   - [Reflection](#reflection)
   - [Custom attributes](#custom-attributes)
 - [Meta programmin in .NET](#meta-programmin-in-net)
-- [Pattern Observer](#pattern-observer)
-- [Pattern strategy](#pattern-strategy)
-- [Pattern Adapter](#pattern-adapter)
-- [Pattern Composite](#pattern-composite)
-- [Pattern Visitor](#pattern-visitor)
-- [Pattern State](#pattern-state)
-
-
-# Domanda tecnica su chi implementa cosa in un pattern visitors
-Il pattern VISITOR permette di definire una nuova operazione da effettuare su gli elementi di una struttura, senza dover modificare le classi degli elementi coinvolti.
-Si consideri un *abstract syntax tree* (AST) - un albero in cui i nodi descrivono elementi sintattici del programma. 
-Su questo albero devono esserci una lista di operazioni consentite utilizziamo il pattern *composite*.
-Se successivamente vogliamo aggiungere altre operazioni sfruttiamo il pattern VISITOR. La soluzione è quella di eliminare le singole operazioni dall?AST e tutto il codice relativo ad un singolo tipo di operazione viene raccolto in una singola classe. I nodi dell'AST accettano la visita delle istanze delle nuove classi (**visitor**). Ne viene che per aggiungere un nuovo tipo di operazione basta progettare una nuova classe.
-
-![](resources/visitor_1.png)
-
-Ogni nodo deve dichairare un'operazione per accettare un generico visitor
-
-![resources/visitor_2.png](resources/visitor_2.png)
-
--   **Visitor** -> Classe astratta o interfaccia
-    -   Dichiara un metodo ***visit*** per ogni classe di elementi concreti
--   **ConcreteVisitor**
-    -   Definisce tutti i metodi ***Visit***
-    -   Globalmente definisce l'operazione da effettuare sulla struttura
-
-![](resources/visitor_3.png)
-
--   **Element** -> Classe astratta o interfaccia
-    -   Dichiara un metodo ***Accept*** che accetta un visitor come argomento
--   **ConcreteElement**
-    -   Definisce il metodo ***Accept***
-
-![](resources/visitor_4.png)
-
-Object structure può essere realizzato come composite o come normale collezzione (array, lista ...)
-
-In sintesi il pattern VISITOR:
--   Faciclita l'aggiunta di nuove operazioni
--   Ogni visitor concreto
-    -   Raggruppa i metodi necessare ad eseguire una data operazione
-    -   Nasconde i dettagli di come tale operazione debba essere eseguita
-
-## Quando usare il pattern visitor
--   Il vantaggio di questo pattern è che se la logica dell’operazione cambia (ad es. logiche sul numero di pezzo per calcolare lo sconto) allora dobbiamo apportare modifiche solo all’implementazione del visitatore piuttosto che farlo in tutte le classi oggetto.
--   Un altro vantaggio è che l’aggiunta di un nuovo elemento al sistema è semplice, richiederà modifiche solo nell’interfaccia e nell’implementazione del visitatore e le classi di Item concreti esistenti non saranno interessate.
-
-## Limiti del pattern visitor
--   Lo svantaggio del pattern visitator è che dovremmo conoscere il tipo di ritorno dei metodi visit () al momento della progettazione altrimenti dovremo modificare l’interfaccia e tutte le sue implementazioni (nel nostro esempio era noto a priori il tipo di ritorno del metodo visit(), ovvero un double essendo il prezzo un numero non intero).
--   Un altro svantaggio è la verbosità di tale pattern: i ConcreteElement devono implementare una particolare interfaccia per essere visitati  e occorre prevedere nell’interfaccia e implementazione del Visitor il metodo di visita per ciascun tipo.
-
+- [Pattern Observer - Comportamentale](#pattern-observer---comportamentale)
+- [Pattern strategy - Comportamentale](#pattern-strategy---comportamentale)
+- [Pattern Adapter - Strutturale](#pattern-adapter---strutturale)
+- [Pattern Composite - Strutturale](#pattern-composite---strutturale)
+- [Pattern Visitor - Comportamentale](#pattern-visitor---comportamentale)
+  - [Quando usare il pattern visitor](#quando-usare-il-pattern-visitor)
+  - [Limiti del pattern visitor](#limiti-del-pattern-visitor)
+- [Pattern State - Comportamentale](#pattern-state---comportamentale)
+  - [Conseguenze del pattern](#conseguenze-del-pattern)
 
 # Quali sono i pattern comportamentali, quali costruttivi e quali strutturali
 ![](resources/pattern_1.png)
@@ -517,7 +472,7 @@ Possono essere usati in modo che i client possano automaticamente usare certe fu
 Può essere usato per creare dinamicamente nuove classi, inserirle in una struttura già esistente e istanziarle.
 System.Reflection permette di creare assembly al volo.
 
-# Pattern Observer
+# Pattern Observer - Comportamentale
 Si basa sul concetto che l'aggiornamento di un oggetto può richiedere l'aggiornamento di altri oggetti.
 Questo pattern trova applicazione nei casi in cui diversi oggetti (**Observer**) devono conoscere lo stato di un oggetto(**Subject**).
 
@@ -534,7 +489,7 @@ Questo pattern trova applicazione nei casi in cui diversi oggetti (**Observer**)
 -   **ConcreteObserver**
     -   Impemente l'interfaccia dell'Observer definendo il comportamento in caso di cambio di stato del soggetto osservato.
 
-# Pattern strategy
+# Pattern strategy - Comportamentale
 Si tratta di un pattern comportamentale basato su oggetti.
 Permette di 
 -   Definire un insieme di algoritmi tra loro correlati
@@ -548,7 +503,10 @@ E' compsto dai seguenti partecipanti:
 
 ![](resources/strategy_1.png)
 
-# Pattern Adapter
+![](resources/strategy_2.png)
+In questo esempio è possibile realizzare gli *Aligner* con il pattern **FlyWeight**
+
+# Pattern Adapter - Strutturale
 Converte l'interfaccia originale di una classe nell'interfaccia che si aspetta il cliente.
 Permette a classi che hanno interfacce incompatibili di lavorare insieme.
 Si usa quando
@@ -557,11 +515,72 @@ Si usa quando
 
 ![](resources/adapter_1.png)
 
-# Pattern Composite
-Da finire
+# Pattern Composite - Strutturale
+Si tratta di un pattern strutturale basato su oggetti che viene utilizzato quando si ha la necessità di realizzare una gerarchia di oggetti in cui l’oggetto contenitore può detenere oggetti elementari e/o oggetti contenitori. L’obiettivo è di permettere al Client che deve navigare la gerarchia, di comportarsi sempre nello stesso modo sia verso gli oggetti elementari e sia verso gli oggetti contenitori.
+Questo pattern è composto da:
 
-# Pattern Visitor
-Da finire
+-   **Client** -> colui che effettua l'invocazione all'operazione di interesse
+-   **Component** -> definise l'interfaccia degli oggetti della composizione
+-   **Leaf** -> Rappresenta l'oggetto foglia della composziione. Non ha figli. definisce il comportamento *primitivo* dell'oggetto della composizione.
+-   **Composite** -> definisce il comportamento degli oggetti usati come contenitori e deteine il riferimento ai componenti *figli*
 
-# Pattern State
-Da finire
+![](resources/composite_1.png)
+
+
+# Pattern Visitor - Comportamentale
+Il pattern VISITOR permette di definire una nuova operazione da effettuare su gli elementi di una struttura, senza dover modificare le classi degli elementi coinvolti.
+Si consideri un *abstract syntax tree* (AST) - un albero in cui i nodi descrivono elementi sintattici del programma. 
+Su questo albero devono esserci una lista di operazioni consentite utilizziamo il pattern *composite*.
+Se successivamente vogliamo aggiungere altre operazioni sfruttiamo il pattern VISITOR. La soluzione è quella di eliminare le singole operazioni dall?AST e tutto il codice relativo ad un singolo tipo di operazione viene raccolto in una singola classe. I nodi dell'AST accettano la visita delle istanze delle nuove classi (**visitor**). Ne viene che per aggiungere un nuovo tipo di operazione basta progettare una nuova classe.
+
+![](resources/visitor_1.png)
+
+Ogni nodo deve dichairare un'operazione per accettare un generico visitor
+
+![resources/visitor_2.png](resources/visitor_2.png)
+
+-   **Visitor** -> Classe astratta o interfaccia
+    -   Dichiara un metodo ***visit*** per ogni classe di elementi concreti
+-   **ConcreteVisitor**
+    -   Definisce tutti i metodi ***Visit***
+    -   Globalmente definisce l'operazione da effettuare sulla struttura
+
+![](resources/visitor_3.png)
+
+-   **Element** -> Classe astratta o interfaccia
+    -   Dichiara un metodo ***Accept*** che accetta un visitor come argomento
+-   **ConcreteElement**
+    -   Definisce il metodo ***Accept***
+
+![](resources/visitor_4.png)
+
+Object structure può essere realizzato come composite o come normale collezzione (array, lista ...)
+
+In sintesi il pattern VISITOR:
+-   Faciclita l'aggiunta di nuove operazioni
+-   Ogni visitor concreto
+    -   Raggruppa i metodi necessare ad eseguire una data operazione
+    -   Nasconde i dettagli di come tale operazione debba essere eseguita
+
+## Quando usare il pattern visitor
+-   Il vantaggio di questo pattern è che se la logica dell’operazione cambia (ad es. logiche sul numero di pezzo per calcolare lo sconto) allora dobbiamo apportare modifiche solo all’implementazione del visitatore piuttosto che farlo in tutte le classi oggetto.
+-   Un altro vantaggio è che l’aggiunta di un nuovo elemento al sistema è semplice, richiederà modifiche solo nell’interfaccia e nell’implementazione del visitatore e le classi di Item concreti esistenti non saranno interessate.
+
+## Limiti del pattern visitor
+-   Lo svantaggio del pattern visitator è che dovremmo conoscere il tipo di ritorno dei metodi visit () al momento della progettazione altrimenti dovremo modificare l’interfaccia e tutte le sue implementazioni (nel nostro esempio era noto a priori il tipo di ritorno del metodo visit(), ovvero un double essendo il prezzo un numero non intero).
+-   Un altro svantaggio è la verbosità di tale pattern: i ConcreteElement devono implementare una particolare interfaccia per essere visitati  e occorre prevedere nell’interfaccia e implementazione del Visitor il metodo di visita per ciascun tipo.
+
+
+# Pattern State - Comportamentale
+![](resources/state_1.png)
+
+Si tratta di un pattern comportamentale basato su oggetti utilizzato quando il comportamento di un oggetto deve cambiare in base al suo stato. 
+I partecipanti sono:
+-   **Context** -> definisce l'interfaccia di interese del Client e mantiene un'istanza della ConcreteState che definisce lo stato corrente.
+-   **State** -> definisce un'interfaccia per incapsulare il comportamento associato con un particolare stato.
+-   **ConcreteState** -> ogni sub-classe che implemtna un comportamento associato con uno stato.
+
+## Conseguenze del pattern
+-   Specializza il comportamento associato ad uno stato: per ogni stato vengono definiti i rispettivi comportamenti pertanto nuovi stati possono specializzare gli stati preesistenti. Questo evita di creare dei grossi blocchi decisionali e consente di inserire, negli oggetti di stato, i blocchi decisionali di pertinenza, in questo modo favorendo la comprensione e manutenzione del codice. Un inconveniente deriva dal fatto che vengono a crearsi molti oggetti di stato e le desioni non sono centralizzate ma sono distribuite sugli stati.
+-   Rende esplicita la transizione di stato: il passaggio da uno stato ad un altro dipende dal verificarsi di una condizione esplicita che viene dichiarata esplicitamente.
+-   Condivisione di oggetti di stato: se l’oggetto di  stato non ha variabili di instanza ma solo comportamenti, può essere condiviso con altri oggetti
