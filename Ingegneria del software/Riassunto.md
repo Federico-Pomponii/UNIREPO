@@ -1,9 +1,10 @@
 # Riassunto Ingegneria Del Software - Federico Pomponii
 
 - [Riassunto Ingegneria Del Software - Federico Pomponii](#riassunto-ingegneria-del-software---federico-pomponii)
+- [DOMANDE ESAME](#domande-esame)
 - [Modello - MOD.2](#modello---mod2)
   - [Modelli del sistema](#modelli-del-sistema)
-    - [Tracciabilità](#tracciabilit%C3%A0)
+    - [Tracciabilità](#tracciabilit%c3%a0)
   - [Linguaggi di modellazione](#linguaggi-di-modellazione)
     - [Modelli e codice](#modelli-e-codice)
   - [Modelli di processo](#modelli-di-processo)
@@ -36,11 +37,53 @@
   - [Analisi e gestione dei rischi](#analisi-e-gestione-dei-rischi)
   - [Casi d'uso e scenari](#casi-duso-e-scenari)
     - [Generalizzazione](#generalizzazione)
-    - [Inclusione <<include>>](#inclusione-include)
-    - [Estensione <<extend>>](#estensione-extend)
+    - [Inclusione &lt;<include>&gt;](#inclusione-ltincludegt)
+    - [Estensione &lt;<extend>&gt;](#estensione-ltextendgt)
 - [Diagrammi UML - MOD 2.5](#diagrammi-uml---mod-25)
+  - [Rappresentazione di una classe](#rappresentazione-di-una-classe)
+  - [Associazioni](#associazioni)
+  - [Ereditarietà e Generalizzazione](#ereditariet%c3%a0-e-generalizzazione)
+  - [Aggregazione](#aggregazione)
+  - [Interfacce e Realizzazioni](#interfacce-e-realizzazioni)
 - [Requisiti sicurezza e privacy](#requisiti-sicurezza-e-privacy)
+- [VCS - Version Control System](#vcs---version-control-system)
+  - [LMU - Lock-Modify-Unlock](#lmu---lock-modify-unlock)
+  - [CMM - Copy-Modify-Merge](#cmm---copy-modify-merge)
+- [DVCS - Distribuited VCS](#dvcs---distribuited-vcs)
+- [Principi sull'architettura dei package](#principi-sullarchitettura-dei-package)
+  - [REP - Reuse/Release Equivalent Principle](#rep---reuserelease-equivalent-principle)
+  - [CCP - Common Closure Principle](#ccp---common-closure-principle)
+  - [CRP - Common Reuse Principle](#crp---common-reuse-principle)
+- [Principi di relazione tra packages](#principi-di-relazione-tra-packages)
+  - [ACP - Acyclic Dependencies Principle](#acp---acyclic-dependencies-principle)
+  - [SDP - Stable Dependencies Principle](#sdp---stable-dependencies-principle)
+  - [SAP - Stable Abstractions Principle](#sap---stable-abstractions-principle)
+- [MVC](#mvc)
+  - [Model](#model)
+  - [View](#view)
+  - [Controller](#controller)
+- [MVP](#mvp)
 
+# DOMANDE ESAME
+1 appello
+- LMU nei VCS
+- Principi sull’architettura dei package 
+- UML
+
+2 appello
+- Pattern Strategy e Adapter
+- Ereditarietà multipla
+- UML
+
+3 appello
+- MVC e MVP
+- CMM nei VCS
+- RUP
+
+4 appello
+- Pattern Flyweight 
+- Passaggio delle variabili ( in-out-in/out )
+- UML
 
 # Modello - MOD.2
 Per modello si intende una rappresentazione di un oggetto o di un fenomeno reale che riproduce caratteristiche o comportamentei ritenuti fondamentali per il tipo di ricerca che si sta svolgendo.
@@ -353,7 +396,23 @@ Si utilizza quando è necessario aggiungere un comportamento opzionale a un caso
 
 # Diagrammi UML - MOD 2.5
 E' un *linguaggio* che serve per visualizzare, specificare, costruire e documentare un sistema e gli elaborati prodotti durante il suo sviluppo.
+## Rappresentazione di una classe
+Una classe viene rappresentata in un rettangolo
+Un attributo della classe viene indicato separatamente in camelCase (tutto minuscolo se una parola sola) -> *attributo1 : tipo1 = "Valore di default"*.
+Le operazioni, sempre separatamente, in camelCase -> *operazione1(**parametri**) : tipoRestituito*
 
+## Associazioni
+Un semplice collegamento concettuale da due classi è rappresentato da una linea che li collega.
+
+## Ereditarietà e Generalizzazione
+Una classe che eredità da una classe padre è collegata da una freccia (**triangolo vuoto**) con il dalla classe figlia alla classe padre.
+
+## Aggregazione
+L'aggregazione è indicata con una freccia (**Triangolo pieno**) dalla classe figlio alla classe intero.
+
+## Interfacce e Realizzazioni
+L'interfaccia è definita come una classe, senza attributi, con la dicitura <<*interface*>>.
+La relazione classe-interfaccia è definita da una linea tratteggiata con un triangolo aperto che punta all'interfaccia.
 # Requisiti sicurezza e privacy
 Dal 25/5/2018 vi è l'obbligo di aderenza di un prodotto software, che tratti dati personali, ai principi della GDPR.
 
@@ -361,3 +420,120 @@ Dal 25/5/2018 vi è l'obbligo di aderenza di un prodotto software, che tratti da
 aggiuntive siano conservate separatamente e soggette a misure tecniche e organizzative intese a garantire la non attribuzione a una persona identificata o identificabile.
 
 *"La pseudonimizzazione è una tecnica che consiste nel conservare i dati in una forma che impedisce l’identificazione del soggetto senza l'utilizzo di informazioni aggiuntive."*
+
+# VCS - Version Control System
+Nasce dal bisogno di organizzare le versioni del codice. Ogni software ha diverse revisioni per:
+-   Diverse piattaforme
+-   Versioni del ciclo di sviluppo (alpha, beta, release)
+-   Differenti rilasci del prodotto
+
+Version control permette di recuperare vecchie versioni e a più versioni di esistere simultaneamente.
+VCS permette di:
+-   Avere una cronologia delle modifiche
+-   Lavorare contemporaneamente, in parallello, su differenti aspetti del SW
+-   Aumentare la produttività
+
+**PROJECTS**
+E' l'insieme dei file nel Version Control
+
+**VCS - Repository**
+E' dove i file e la cronologia delle modifiche è salvata
+
+**VCS - Working Folder**
+E' la copia locale del repository in un determinato stato
+
+**VCS - Branches**
+Un branch è una multipla revisione dei file
+
+## LMU - Lock-Modify-Unlock
+Più utenti possono modificare lo stesso file e quindi le modifiche potrebbero andare in conflitto.
+Per ovviare a questo problema si utilizza il LMU model.
+Quindi:
+-   Il repository permette ad un file di essere modificato da una sola persona (*Lock* del file)
+-   Quando un utente finisce di modificare un file lo sblocca (*Unlock* del file)
+
+Questo modello può creare problemi come ad esempio:
+-   Un utente può bloccare un file e dimenticarsi di sbloccarlo
+-   Le modifiche su uno stesso file non sempre vanno in conflitto
+-   Il lavoro offline
+
+## CMM - Copy-Modify-Merge
+-   In questo modello non esiste *Lock* dei file.
+-   Ogni volta che un utente fa un check in su una working copy le modifiche vengono *mergiate* nei file del repository
+
+Con questo modello gli utenti possono lavorare comodamente in parallelo. Inoltre, nel caso di conflitti nelle modifiche, il tempo impiegato
+nella risoluzione è minore rispetto al tempo impiegato per il *Lock* dei file.
+
+# DVCS - Distribuited VCS
+**Trunk**
+La linea principale di sviluppo (*Master*)
+
+**Branch**
+E' la copia dei file in un determinato istante. Nel momento in cui si crea un nuovo branch vengono generate due copie differenti dei file.
+Quando le modifiche sono consolidate è possibile fare la *merge* sul *Trunk*
+
+**Tag**
+Il tag sarebbe la release. Solitamente è un tag User-Friendly che indica una specifica revision dei file.
+
+**Pull/Push**
+
+# Principi sull'architettura dei package
+## REP - Reuse/Release Equivalent Principle
+*The granule of reuse is the granule of release* - Un elemento, sia esso un componente di qualsivoglia tipologia (class, cluster or classes) non
+può essere riutilizzato se non è gestisto da un sistema di release di qualche tipo.
+I client devono rifiutarsi di utilizzare un componente se l'autore non garantisce la mantenibilità delle vecchie versioni.
+
+## CCP - Common Closure Principle
+*Classes that change together, belong together*
+L'obiettivo è di minimizzare il numero di *packages* che cambiano in ogni release, in previsione di facilitare il processo di test e deploy per ogni
+ciclo di sviluppo del software.
+Perciò si cerca di raggruppare insieme le classi che pensiamo cambieranno.
+
+## CRP - Common Reuse Principle
+*Classes that aren’t reused together should not be grouped together*
+La dipendenza da un package è la dipendenza di tutto quello che appartiene al package. Quindi: le classi che non vengono utilizzate insieme non devono appartenere
+allo stesso package.
+
+# Principi di relazione tra packages
+## ACP - Acyclic Dependencies Principle
+*The dependencies between packages must not form cycles*
+Le dipendenze tra package non devono essere cicliche.
+Una volta che le modifiche ad un package sono completate gli sviluppatori possono rilasciare le modifiche nel progetto. Una sola dipendenza ciclica potrebbe complicare
+questo processo di rilascio del codice.
+Quindi bisognerebbe controllare costantemente i packages e risolvere tempestivamente le dipendenze.
+Per interrompere un ciclo si può
+-   Inserire un package intermedio
+-   Inserire un'interfaccia
+
+## SDP - Stable Dependencies Principle
+*The dependencies between packages in a design should be in the direction of the stability of the packages.A package should only depend upon packages that are more stable than it is.*
+
+## SAP - Stable Abstractions Principle
+*Stable packages should be abstract packages*
+La stabilità di un package è richiesto al tempo richiesto per effettuare le modifiche.
+
+# MVC
+Permette di suddividere l'applicazione o anche soltanto l'interfaccia dell'applicazione in tre componenti:
+-   *Model*
+-   *View*
+-   *Controller*
+
+## Model
+-   Gestisce un insieme di dati logicamente correlati
+-   Risponde alle interrogazioni sui dati
+-   Risponde alle istruzioni di modifica sullo stato
+-   Genera un evento quando lo stato cambia
+-   In Java estende la classe *java.util.Observable*
+
+## View
+-   Presenta all'utente un insieme di dati ottenuti dal *Model*
+-   Si registra presso il *Model* per ricevere eventi del cambiamento dell ostato
+-   In Java estende la classe *java.util.Observer*
+
+## Controller
+-   Gestisci gli input utente
+-   Mappa le azioni
+-   Invia comandi al *Model/View*
+
+# MVP
+Nella variante Model-View-Presenter la View interagisce con il Presenter piuttosto che con il Model

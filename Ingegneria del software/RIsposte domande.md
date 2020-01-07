@@ -120,6 +120,8 @@ Il **Common Language Specification**
 -   Field read-only: une delle due convenzioni precedenti
 
 # Dire di che tipo deve essere il type di un event
+Un evento incapsula un delegato -> Deve essere dichiarato un tipo di delegato prima di poter dichiarare un evento.
+Per convenzione, i delegati dell'evento hanno due argomenti, la sorgente che genera l'evento e i dati per l'evento
 
 # Pattern FLyWeight
 Il FlyWeight è un pattern **Strutturale**.
@@ -143,6 +145,7 @@ Il FlyWeight è un pattern **Strutturale**.
 -   **Boss-worker** offre una soluzione ***delegate-based*** *callback_relationship*
 -   L' ***AlignerBase*** del pattern **Strategy** delega alle sue sottoclassi l'allineamendot delle singole linee
 -   Nel pattern **Decorator** quando un oggetto cambia stato, cambia anche comportamento utilizzando un pattern **State** che utilizza un meccanismo di delega, grazie al quale l'oggetto è in grado di comportarsi come se avesse cambiato classe.
+-   Pattern Adapter utilizza sempre delega per adattare i metodi di una classe a quelli di un'altra (cioè invoca i metodi di un'istanza di quella da adottare , modifica il risultato in modo da ottenere omogeneo a quello dell'altra classe)
 
 # Quale pattern NON usa la composizione e delega
 I pattern che utilizzano Adapter e che non utilizzano Composite e Decorator
